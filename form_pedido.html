@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Flash Bite</title>
+    
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f2f2f2;
+        }
+
+        .contenedor{
+            width:400px;
+            background:white;
+            margin:40px auto;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+            position:relative;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:orangered;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input, select{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        .checkbox{
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:orange;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .cancelar{
+            background:#dc3545;
+        }
+
+        .cancelar:hover{
+            background:#b02a37;
+        }
+
+        .btn-pedidos{
+            display:block;
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            background:#28a745;
+            color:white;
+            text-decoration:none;
+            text-align:center;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .btn-pedidos:hover{
+            background:#218838;
+        }
+
+        button:hover{
+            background:orangered;
+        }
+
+        .enlaces{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .enlaces a{
+            text-decoration:none;
+            color:orangered;
+            font-weight:bold;
+            margin:10px;
+        }
+
+        .cerrar{
+            position:absolute;
+            top:10px;
+            right:15px;
+            text-decoration:none;
+            font-size:24px;
+            color:black;
+            font-weight:normal;
+        }
+
+        .cerrar:hover{
+            color:orangered;
+        }
+
+        .item{
+            display:flex;
+            justify-content:space-between;
+            padding:8px 0;
+            border-bottom:1px solid #ddd;
+            font-size:16px;
+            flex-direction:row;
+        }
+
+        #total{
+            text-align:right;
+            color:orangered;
+            margin-top:15px;
+        }
+
+        /* MODO OSCURO */
+        .dark{
+            background:#121212;
+            color:#ffffff;
+        }
+
+        .dark .contenedor{
+            background:#1f1f1f;
+            color:white;
+            box-shadow:0 0 15px rgba(0,0,0,.6);
+        }
+
+        .dark h2,
+        .dark h3,
+        .dark label,
+        .dark #total{
+            color:#ff9800;
+        }
+
+        .dark input{
+            background:#2b2b2b;
+            color:white;
+            border:1px solid #555;
+        }
+
+        .dark input::placeholder{
+            color:#bdbdbd;
+        }
+
+        .dark .item{
+            display:flex;
+            justify-content:space-between;
+            padding:10px 0;
+            border-bottom:1px solid #444;
+            color:white;
+        }
+
+        .dark hr{
+            border:1px solid #444;
+        }
+
+        .dark button{
+            background:#ff9800;
+            color:white;
+        }
+
+        .dark button:hover{
+            background:#ff6d00;
+        }
+
+        .dark .enlaces a{
+            color:#ffb74d;
+        }
+
+        .dark .cerrar{
+            color:white;
+        }
+
+        .dark .cerrar:hover{
+            color:#ff9800;
+        }
+
+        .item{
+            display:flex;
+            justify-content:space-between;
+            padding:10px 0;
+            border-bottom:1px solid #ddd;
+            font-size:16px;
+        }
+
+        #total{
+            text-align:right;
+            color:orangered;
+        }
+
+        @media(max-width:768px){
+            .contenedor{
+            grid-template-columns:1fr;
+            }
+        }
+
+        @keyframes aparecer{
+
+        from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+        }
+
+        to{
+
+        opacity:1;
+        transform:translateY(0);
+
+        }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <a href="menu.html" class="cerrar">✖</a>
+
+        <h2>Formulario de Pedido</h2>
+
+        <form>
+
+            <label>Dirección</label>
+
+            <input
+                type="text"
+                id="direccion"
+                placeholder="Ingrese su dirección"
+                required
+            >
+
+            <h3>Selección de Platos</h3>
+
+            <br>
+
+            <div class="item">
+                <span>Sin productos en el carrito</span>
+            </div>
+
+
+        <hr>
+
+        <br>
+
+        <h3 id="total">
+           Total: S/ 0.00
+        </h3>
+            <br>
+            <button type="submit">
+                Confirmar Pedido
+            </button>
+
+            <button
+                type="reset"
+                class="cancelar"
+                style="margin-top:10px;"
+            >
+                Cancelar Pedido
+            </button>
+
+            <br>
+
+            <a href="pedidos.html" class="btn-pedidos">
+                Pedidos Existentes
+            </a>
+
+        </form>
+
+        <div class="enlaces">
+
+            <a href="menu.html">
+                Volver al Menú
+            </a>
+            |
+            <a href="index.html">
+                Ir al Inicio
+            </a>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Flash Bite</title>
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#fff8e1;
+        }
+
+        header{
+            background:orange;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .carrito{
+            margin-top:15px;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .carrito-link{
+            color:white;
+            text-decoration:none;
+        }
+
+        .stock{
+            margin-top:10px;
+            font-weight:bold;
+            color:#2e7d32;
+        }
+
+        .contenedor{
+
+            width:90%;
+            margin:auto;
+            padding:30px;
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .oferta{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .oferta:hover{
+            transform:scale(1.03);
+        }
+
+        .oferta img{
+            width:100%;
+            height:180px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+
+        h2{
+            margin:15px 0;
+            color:#e65100;
+        }
+
+        .precio-original{
+            text-decoration:line-through;
+            color:red;
+            font-size:18px;
+        }
+
+        .precio-descuento{
+            color:green;
+            font-size:28px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        .urgente{
+            background:red;
+            color:white;
+            padding:8px;
+            border-radius:5px;
+            display:inline-block;
+            margin-top:10px;
+            font-weight:bold;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:15px;
+            border:none;
+            background:orange;
+            color:white;
+            font-size:16px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:orangered;
+        }
+
+        .enlaces{
+            text-align:center;
+            margin:30px;
+        }
+
+        .enlaces a{
+            text-decoration:none;
+            background:orange;
+            color:white;
+            padding:12px 20px;
+            border-radius:5px;
+            margin:10px;
+            display:inline-block;
+        }
+
+        .enlaces a:hover{
+            background:orangered;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+    <h1>🔥 Ofertas Especiales</h1>
+
+    <div class="carrito">
+
+        <a href="form_pedido.html" class="carrito-link">
+            🛒 Carrito (0)
+        </a>
+
+    </div>
+
+</header>
+
+    <div class="contenedor">
+
+        <div class="oferta">
+
+            <img src="https://www.afuegolento.com/img_db/timthumb.php?src=img_db/articles/2020/09/article-5f59eddfad0d8.jpg&w=800&z=1">
+
+            <h2>Pizza Familiar</h2>
+
+            <p class="precio-original">
+                S/ 29.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 21.60
+            </p>
+
+            <p class="urgente">
+                ⚠️ Últimas unidades
+            </p>
+
+            <p class="stock">
+                Stock: 5
+            </p>
+
+            <button>
+                Comprar
+            </button>
+
+        </div>
+
+        <div class="oferta">
+
+            <img src="https://www.bembos.com.pe/media/catalog/product/_/t/_tumbay_1000x1000.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg">
+            
+            <h2>Hamburguesa</h2>
+
+            <p class="precio-original">
+                S/ 25.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 19.00
+            </p>
+
+            <p class="urgente">
+                ⚠️ Oferta por tiempo limitado
+            </p>
+
+            <p class="stock">
+                Stock: 4
+            </p>
+
+            <button>
+                Comprar
+            </button>
+
+        </div>
+
+        <div class="oferta">
+
+            <img src="https://www.paulinacocina.net/wp-content/uploads/2024/01/receta-de-pollo-broaster-Paulina-Cocina-Recetas-800x450.jpg">
+
+            <h2>Pollo Broaster</h2>
+
+            <p class="precio-original">
+                S/ 30.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 12.90
+            </p>
+
+            <p class="urgente">
+                ⚠️ Próximo a vencer
+            </p>
+
+            <p class="stock">
+                Stock: 8
+            </p>
+ 
+            <button>
+                Comprar
+            </button>
+
+        </div>
+        
+
+        </div>
+            <div class="oferta">
+
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+
+            <h2>🍕 Combo Pizza + Gaseosa</h2>
+
+            <p class="precio-original">
+                S/ 55.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 35.00
+            </p>
+
+            <p>
+                Pizza familiar + gaseosa 1.5L
+            </p>
+
+            <p class="urgente">
+                ⚠️ Combo más vendido
+            </p>
+
+            <p class="stock">
+                Stock: 6
+            </p>
+
+            <button>
+                Comprar Combo
+            </button>
+
+        </div>
+
+        <div class="oferta">
+
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+            <h2>🍔 Combo Hamburguesa</h2>
+
+            <p class="precio-original">
+                S/ 54.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 24.00
+            </p>
+
+            <p>
+                Hamburguesa + papas fritas + gaseosas 1.5 L
+            </p>
+
+            <p class="urgente">
+                ⚠️ Últimas promociones
+            </p>
+
+            <p class="stock">
+                Stock: 7
+            </p>
+
+            <button>
+                Comprar Combo
+            </button>
+
+        </div>
+
+        <div class="oferta">
+
+            <img src="https://www.donbelisario.com.pe/media/catalog/product/_/-/_-pollo_papas_ensalada-fresca_1-gaseosa-500ml_salsas.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg">
+
+            <h2>🍗 Combo Familiar</h2>
+
+            <p class="precio-original">
+                S/ 75.00
+            </p>
+
+            <p class="precio-descuento">
+                S/ 49.00
+            </p>
+
+            <p>
+                Pollo + papas + ensalada + bebidas
+            </p>
+
+            <p class="urgente">
+                ⚠️ Solo por hoy
+            </p>
+
+            <p class="stock">
+                Stock: 3
+            </p>
+
+            <button>
+                Comprar Combo
+            </button>
+
+        </div>
+
+            <div class="enlaces">
+
+                <a href="menu.html">
+                    Ir a Menú
+                </a>
+
+                <a href="index.html">
+                    Ir al Inicio
+                </a>
+
+            </div>
+        </div>
+</body>
+
+</html>

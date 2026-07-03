@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Flash Bite</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f2f2f2;
+        }
+
+        header{
+            background:orange;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .contenedor{
+            width:90%;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+            display:grid;
+            grid-template-columns:1fr;
+            gap:20px;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:orangered;
+        }
+
+        .enviado{
+            color:green;
+            font-weight:bold;
+        }
+
+        .proceso{
+            color:orange;
+            font-weight:bold;
+        }
+
+        .preparando{
+            color:red;
+            font-weight:bold;
+        }
+
+        .enlaces{
+            text-align:center;
+            margin-top:30px;
+        }
+
+        .enlaces a{
+            text-decoration:none;
+            background:orange;
+            color:white;
+            padding:12px 20px;
+            border-radius:5px;
+            margin:10px;
+            display:inline-block;
+        }
+
+        .enlaces a:hover{
+            background:orangered;
+        }
+
+        .pedido{
+            background:#fff;
+            padding:20px;
+            margin-bottom:20px;
+            border-left:6px solid orange;
+            border-radius:10px;
+            box-shadow:0 0 8px rgba(0,0,0,.15);
+            align-items:center;
+            transition:.3s;
+        }
+
+        .pedido h2{
+            margin-bottom:10px;
+            color:orangered;
+        }
+
+        .pedido p{
+            margin:6px 0;
+        }
+
+        .producto{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:8px 0;
+        }
+
+        .producto:last-child{
+            border:none;
+        }
+        
+        footer{
+            background:#1f1f1f;
+            color:white;
+            padding:50px 20px;
+            margin-top:50px;
+        }
+
+        .footer-contenido{
+            max-width:1200px;
+            margin:auto;
+            text-align:center;
+        }
+
+        .footer-contenido h2{
+            color:#ff914d;
+            margin-bottom:15px;
+        }
+
+        .footer-contenido hr{
+            border:none;
+            height:1px;
+            background:#444;
+            margin:25px 0;
+        }
+
+        .footer-info{
+            display:flex;
+            justify-content:space-around;
+            gap:30px;
+            flex-wrap:wrap;
+            text-align:left;
+        }
+
+        .footer-info h3{
+            color:#ff914d;
+            margin-bottom:10px;
+        }
+
+        .footer-info p{
+            line-height:1.8;
+        }
+
+        .redes{
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            flex-wrap:wrap;
+            margin-top:20px;
+            }
+
+            .redes a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            transition:.3s;
+            }
+
+            .redes a:hover{
+            color:#ff914d;
+            }
+
+
+/*========== Laptop ==========*/
+
+@media screen and (max-width:1200px){
+
+.contenedor{
+
+width:95%;
+
+}
+
+}
+
+/*========== Tablet ==========*/
+
+@media screen and (max-width:768px){
+
+.contenedor{
+
+width:95%;
+
+padding:20px;
+
+}
+
+.footer-info{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.enlaces{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+
+/*========== Celular ==========*/
+
+@media screen and (max-width:480px){
+
+header h1{
+
+font-size:24px;
+
+}
+
+.pedido{
+
+padding:15px;
+
+}
+
+.producto{
+
+font-size:14px;
+
+}
+
+.enlaces a{
+
+width:100%;
+
+}
+
+}
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <h1>🍔 Pedidos </h1>
+
+    </header>
+
+    <div class="contenedor">
+
+    <div class="pedido">
+
+    <h2>Pedido #1</h2>
+
+    <p><strong>Nombre:</strong> Juan Pérez</p>
+
+    <p><strong>Dirección:</strong> Av. Las Torres 246 Mz. G</p>
+
+    <p><strong>Celular:</strong> 987654321</p>
+
+    <p><strong>Fecha:</strong> 02/07/2026</p>
+
+    <p><strong>Estado:</strong> <span class="enviado">Confirmado</span></p>
+
+    <br>
+
+    <strong>Productos</strong>
+
+    <br><br>
+
+    <div class="producto">
+        <span>Pizza Familiar x1</span>
+        <span>S/ 25.00</span>
+    </div>
+
+    <div class="producto">
+        <span>Hamburguesa x2</span>
+        <span>S/ 36.00</span>
+    </div>
+
+    <div style="margin-top:15px;
+                padding-top:10px;
+                border-top:2px solid orange;
+                display:flex;
+                justify-content:space-between;
+                font-weight:bold;
+                font-size:18px;">
+
+        <span>TOTAL</span>
+
+        <span>S/ 61.00</span>
+
+    </div>
+
+</div>
+
+        <div class="enlaces">
+
+            <a href="form_pedido.html">
+                Nuevo Pedido
+            </a>
+
+            <a href="menu.html">
+                Volver al Menú
+            </a>
+
+            <a href="index.html">
+                Ir al Inicio
+            </a>
+
+        </div>
+
+    </div>
+
+    
+    <footer>
+
+        <div class="footer-contenido">
+
+            <h2>🍔 Flash Bite</h2>
+
+            <p>
+                Plataforma dedicada al rescate de alimentos y promociones
+                de restaurantes asociados en Mall Aventura Arequipa.
+            </p>
+
+            <hr>
+
+            <div class="footer-info">
+
+                <div>
+                    <h3>📍 Ubicación</h3>
+                    <p>
+                        Mall Aventura Arequipa<br>
+                        Av. Porongoche 500<br>
+                        Arequipa - Perú
+                    </p>
+                </div>
+
+                <div>
+                    <h3>🍕 Restaurantes Asociados</h3>
+                    <p>
+                        KFC • Bembos • Burger King<br>
+                        Pizza Hut • Chinawok<br>
+                        y más aliados comerciales
+                    </p>
+                </div>
+
+                <div>
+                    <h3>📞 Contacto</h3>
+                    <p>
+                        contacto@flashbite.com<br>
+                        +51 900 123 456
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="redes">
+                <a href="#">📷 Instagram</a>
+                <a href="#">👍 Facebook</a>
+                <a href="#">🎵 TikTok</a>
+                <a href="#">📧 Correo</a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Flash Bite - Todos los derechos reservados
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

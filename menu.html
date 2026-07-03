@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Flash Bite</title>
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f2f2f2;
+        }
+
+        header{
+            background:orange;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .contenedor{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap:20px;
+            padding:30px;
+            justify-content: center
+
+        }
+
+        .card{
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+            transition:0.3s;
+        }
+        
+        .card:hover{
+            transform:scale(1.03);
+        }
+
+        .card img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+        }
+
+        .info{
+            padding:15px;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .info h3{
+            margin-bottom:10px;
+        }
+
+        .descripcion{
+            color:gray;
+            font-size:14px;
+            margin-bottom:10px;
+        }
+
+        .precio{
+            text-decoration:line-through;
+            color:red;
+        }
+
+        .descuento{
+            color:green;
+            font-size:22px;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:orange;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:orangered;
+        }
+
+        .enlaces{
+            text-align:center;
+            margin:30px;
+        }
+
+        .enlaces a{
+            text-decoration:none;
+            background:orange;
+            color:white;
+            padding:12px 20px;
+            border-radius:5px;
+            margin:10px;
+            display:inline-block;
+        }
+
+        .enlaces a:hover{
+            background:orangered;
+        }
+
+        .carrito{
+            margin-top:15px;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .stock{
+            margin-top:8px;
+            font-size:15px;
+            font-weight:bold;
+        }
+
+        .disponible{
+            color:#28a745;
+        }
+
+        .pocas{
+            color:#ff9800;
+        }
+
+        .agotado{
+            color:#dc3545;
+        }
+
+        button:disabled{
+            background:#9e9e9e;
+            cursor:not-allowed;
+        }
+        
+        footer{
+            background:#1f1f1f;
+            color:white;
+            padding:50px 20px;
+            margin-top:50px;
+        }
+
+        .footer-contenido{
+            max-width:1200px;
+            margin:auto;
+            text-align:center;
+        }
+
+        .footer-contenido h2{
+            color:#ff914d;
+            margin-bottom:15px;
+        }
+
+        .footer-contenido hr{
+            border:none;
+            height:1px;
+            background:#444;
+            margin:25px 0;
+        }
+
+        .footer-info{
+            display:flex;
+            justify-content:space-around;
+            gap:30px;
+            flex-wrap:wrap;
+            text-align:left;
+        }
+
+        .footer-info h3{
+            color:#ff914d;
+            margin-bottom:10px;
+        }
+
+        .footer-info p{
+            line-height:1.8;
+        }
+        .redes{
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            flex-wrap:wrap;
+            margin-top:20px;
+        }
+
+        .redes a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .redes a:hover{
+            color:#ff914d;
+        }
+
+        /* MODO OSCURO */
+        .dark{
+            background:#121212;
+            color:white;
+        }
+
+        .dark header{
+            background:orange;
+        }
+
+        .dark .card{
+            background:#2b2b2b;
+            color:white;
+        }
+
+        .dark .descripcion{
+            color:#d0d0d0;
+        }
+
+        .dark .precio{
+            color:#ff6b6b;
+        }
+
+        .dark .descuento{
+            color:#4caf50;
+        }
+
+        .dark button{
+            background:#ff9800;
+        }
+
+        .dark button:hover{
+            background:#ff6d00;
+        }
+
+        .dark .enlaces a{
+            background:#ff9800;
+            color:white;
+        }
+
+        .dark .enlaces a:hover{
+            background:#ff6d00;
+        }
+
+        .dark .carrito a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .dark .stock{
+            color:white;
+        }
+
+        .dark .disponible{
+            color:#4caf50;
+        }
+
+        .dark .pocas{
+            color:#ffc107;
+        }
+
+        .dark .agotado{
+            color:#ff5252;
+        }
+
+        /*==========================
+                Laptop
+        ==========================*/
+
+        @media screen and (max-width:1200px){
+
+        .contenedor{
+            grid-template-columns:repeat(2,1fr);
+        }
+
+        }
+
+        /*==========================
+                Tablet
+        ==========================*/
+
+        @media screen and (max-width:768px){
+
+        header{
+            padding:15px;
+        }
+
+        .contenedor{
+            grid-template-columns:1fr;
+            padding:20px;
+        }
+
+        .enlaces{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        .footer-info{
+            flex-direction:column;
+            text-align:center;
+        }
+
+        }
+
+        /*==========================
+                Celular
+        ==========================*/
+
+        @media screen and (max-width:480px){
+
+        header h1{
+            font-size:24px;
+        }
+
+        .card img{
+            height:180px;
+        }
+
+        .enlaces a{
+            width:100%;
+        }
+
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>🍔 Menú Flash Bite</h1>
+
+        <div class="carrito">
+            <a href="form_pedido.html" class="carrito">
+                🛒 
+                <span id="contadorCarrito">0</span>
+            </a>
+
+        </div>
+    </header>
+
+    <div class="contenedor">
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+
+            <div class="info">
+                <h3>Pizza Familiar</h3>
+
+                <p class="descripcion">
+                    Pizza con queso y pepperoni
+                </p>
+
+                <p class="precio">
+                    S/ 40.00
+                </p>
+
+                <p class="descuento">
+                    S/ 25.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                Stock:
+                    <span id="stock32">20</span>
+                </p>
+
+                <button onclick="addToCart(32)">
+                     Añadir al Pedido
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+            <div class="info">
+                <h3>Hamburguesa</h3>
+
+                <p class="descripcion">
+                    Hamburguesa doble carne
+                </p>
+
+                <p class="precio">
+                    S/ 30.00
+                </p>
+
+                <p class="descuento">
+                    S/ 18.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock33">20</span>
+                </p>
+
+                <button onclick="addToCart(33)">
+                     Añadir al Pedido
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+
+            <div class="info">
+                <h3>Pollo Broaster</h3>
+
+                <p class="descripcion">
+                    Pollo crocante con papas
+                </p>
+
+                <p class="precio">
+                    S/ 28.00
+                </p>
+
+                <p class="descuento">
+                    S/ 15.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock34">20</span>
+                </p>
+
+                <button onclick="addToCart(34)">
+                     Añadir al Pedido
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468">
+
+            <div class="info">
+                <h3>Ensalada</h3>
+
+                <p class="descripcion">
+                    Ensalada saludable fresca
+                </p>
+
+                <p class="precio">
+                    S/ 20.00
+                </p>
+
+                <p class="descuento">
+                    S/ 10.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock35">20</span>
+                </p>
+
+                <button onclick="addToCart(35)">
+                     Añadir al Pedido
+                </button>
+
+            </div>
+        </div>
+        <div class="card">
+
+            <img src="https://www.cocinadelirante.com/sites/default/files/images/2024/09/como-hacer-el-pay-de-limon-helado-estilo-vips-con-leche-condensada.jpg">
+            
+            <div class="info">
+                <h3>Pay de Limon Frio</h3>
+
+                <p class="descripcion">
+                    Una tajada 
+                </p>
+
+                <p class="precio">
+                    S/ 9.00
+                </p>
+
+                <p class="descuento">
+                    S/ 5.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock36">20</span>
+                </p>
+
+                <button onclick="addToCart(36)">
+                    Añadir al Pedido
+                </button>
+
+            </div>
+        </div>
+                <div class="card">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSG0khN8AC5_GOFrJn-1dxRQOU03Jb3UndFA&s">
+            
+            <div class="info">
+                <h3>Pay de Manzana</h3>
+
+                <p class="descripcion">
+                    Para 20 personas
+                </p>
+
+                <p class="precio">
+                    S/ 70.00
+                </p>
+
+                <p class="descuento">
+                    S/ 29.50
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock37">20</span>
+                </p>
+
+                <button onclick="addToCart(37)">
+                    Añadir al Pedido
+                </button>
+
+            </div>
+        </div>
+                <div class="card">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwXDgxkhDSo59_ajNGWe6kJ4T4DEOle-AQ5A&s">
+            
+            <div class="info">
+                <h3>Brownie</h3>
+
+                <p class="descripcion">
+                    16 Piesas
+                </p>
+
+                <p class="precio">
+                    S/ 35.00
+                </p>
+
+                <p class="descuento">
+                    S/ 19.30
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock38">20</span>
+                </p>
+
+                <button onclick="addToCart(38)">
+                    Añadir al Pedido
+                </button>
+
+            </div>
+        </div>
+                <div class="card">
+
+            <img src="https://pbs.twimg.com/media/BbNLddDCEAEVXRx.jpg">
+            
+            <div class="info">
+                <h3> Donas</h3>
+
+                <p class="descripcion">
+                    Decoradas 6 por caja
+                </p>
+
+                <p class="precio">
+                    S/ 65.40
+                </p>
+
+                <p class="descuento">
+                    S/ 30.00
+                </p>
+
+                <p class="stock disponible">
+                     Disponible
+                </p>
+
+                <p class="stock">
+                    Stock:
+                    <span id="stock39">20</span>
+                </p>
+
+                <button onclick="addToCart(39)">
+                    Añadir al Pedido
+                </button>
+
+            </div>
+        </div>
+        
+        <!--colocar mas y ver como va-->
+    </div>
+
+    <div class="enlaces">
+
+        <a href="form_pedido.html">
+             Ver Pedido
+        </a>
+
+        <a href="ofertas.html">
+            Ver Ofertas
+        </a>
+
+        <a href="index.html">
+            Ir a inicio
+        </a>
+
+    </div>
+    
+    <footer>
+
+        <div class="footer-contenido">
+
+            <h2>🍔 Flash Bite</h2>
+
+            <p>
+                Plataforma dedicada al rescate de alimentos y promociones
+                de restaurantes asociados en Mall Aventura Arequipa.
+            </p>
+
+            <hr>
+
+            <div class="footer-info">
+
+                <div>
+                    <h3>📍 Ubicación</h3>
+                    <p>
+                        Mall Aventura Arequipa<br>
+                        Av. Porongoche 500<br>
+                        Arequipa - Perú
+                    </p>
+                </div>
+
+                <div>
+                    <h3>🍕 Restaurantes Asociados</h3>
+                    <p>
+                        KFC • Bembos • Burger King<br>
+                        Pizza Hut • Chinawok<br>
+                        y más aliados comerciales
+                    </p>
+                </div>
+
+                <div>
+                    <h3>📞 Contacto</h3>
+                    <p>
+                        contacto@flashbite.com<br>
+                        +51 900 123 456
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="redes">
+                <a href="#">📷 Instagram</a>
+                <a href="#">👍 Facebook</a>
+                <a href="#">🎵 TikTok</a>
+                <a href="#">📧 Correo</a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Flash Bite - Todos los derechos reservados
+            </p>
+
+        </div>
+        <script>
+
+let carrito=0;
+
+function addToCart(id){
+
+    carrito++;
+
+    document.getElementById("contadorCarrito").innerHTML=carrito;
+
+    alert("Producto agregado al pedido.");
+
+}
+
+if(localStorage.getItem("modo")=="oscuro"){
+
+    document.body.classList.add("dark");
+
+}
+
+</script>
+    </footer>
+</body>
+</html> 
