@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Flash Bite</title>
+    
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background:#f5f5f5;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:20px;
+        }
+
+        .contenedor{
+            width:400px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+            display:grid;
+            grid-template-columns:1fr;
+            gap:15px;
+
+            animation:aparecer .8s ease;
+        }
+
+        @keyframes aparecer{
+
+            from{
+                opacity:0;
+                transform:translateY(35px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
+
+        h2{
+            text-align:center;
+            color:orangered;
+            margin-bottom:10px;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+            transition:.3s;
+            font-size:15px;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:orangered;
+            box-shadow:0 0 8px rgba(255,69,0,.3);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:orange;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:orangered;
+            transform:scale(1.03);
+        }
+
+        /*====================
+            Laptop
+        ====================*/
+
+        @media screen and (max-width:1200px){
+
+        .contenedor{
+            width:420px;
+        }
+
+        }
+
+        /*====================
+            Tablet
+        ====================*/
+
+        @media screen and (max-width:768px){
+
+        body{
+            padding:25px;
+        }
+
+        .contenedor{
+            width:100%;
+            max-width:420px;
+        }
+
+        }
+
+        /*====================
+            Celular
+        ====================*/
+
+        @media screen and (max-width:480px){
+
+        body{
+            padding:15px;
+        }
+
+        .contenedor{
+            width:100%;
+            padding:20px;
+        }
+
+        h2{
+            font-size:24px;
+        }
+
+        button,
+        input{
+            font-size:15px;
+        }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+       <h2>Recuperar contraseña</h2>
+
+        <form id="formRecuperar">
+
+            <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Correo registrado"
+            required>
+
+            <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Nueva contraseña"
+            required>
+            <small id="seguridadPassword"></small>
+
+            <input
+            type="password"
+            id="password2"
+            name="password2"
+            placeholder="Confirmar contraseña"
+            required>
+
+            <button type="submit">
+                Cambiar contraseña
+            </button>
+
+            <p id="mensajeRecuperar"></p>
+
+            <br>
+            <a href="login.html">
+                <button type="button">
+                    Volver al inicio de sesión
+                </button>
+            </a>
+
+        </form>
+    </div>
+
+    <script src="js/recuperar.js"></script>
+
+</body>
+</html>
