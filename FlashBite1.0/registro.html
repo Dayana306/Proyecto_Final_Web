@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpeg" type="image/jpeg">
+    <title>Flash Bite</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial,Helvetica,sans-serif;
+            background:#f2f2f2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:20px;
+        }
+
+        .contenedor{
+            width:420px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+            display:grid;
+            grid-template-columns:1fr;
+            gap:15px;
+
+            position:relative;
+
+            animation:aparecer .8s ease;
+        }
+
+        @keyframes aparecer{
+
+            from{
+                opacity:0;
+                transform:translateY(35px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:10px;
+            color:orangered;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+        }
+
+        input,
+        select{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            transition:.3s;
+            font-size:15px;
+        }
+
+
+        input:focus,
+        select:focus{
+            outline:none;
+            border-color:orangered;
+            box-shadow:0 0 8px rgba(255,69,0,.3);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:orange;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:orangered;
+            transform:scale(1.03);
+        }
+
+        .btn-login{
+            background:orangered;
+        }
+
+        .btn-login:hover{
+            background:orange;
+        }
+
+        .login{
+            text-align:center;
+            margin-top:10px;
+        }
+
+        .login a{
+            color:orangered;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .login a:hover{
+            text-decoration:underline;
+        }
+
+        .cerrar{
+            position:absolute;
+            top:12px;
+            right:18px;
+            text-decoration:none;
+            color:black;
+            font-size:24px;
+            transition:.3s;
+        }
+
+        .cerrar:hover{
+            color:orangered;
+            transform:rotate(90deg);
+        }
+
+        /* ======================
+                Laptop
+        ====================== */
+
+        @media screen and (max-width:1200px){
+
+        .contenedor{
+            width:430px;
+        }
+
+        }
+
+        /* ======================
+                Tablet
+        ====================== */
+
+        @media screen and (max-width:768px){
+
+        body{
+            padding:25px;
+        }
+
+        .contenedor{
+            width:100%;
+            max-width:430px;
+        }
+
+        }
+
+        /* ======================
+                Celular
+        ====================== */
+
+        @media screen and (max-width:480px){
+
+        body{
+            padding:15px;
+        }
+
+        .contenedor{
+            width:100%;
+            padding:20px;
+        }
+
+        h2{
+            font-size:26px;
+        }
+
+        input,
+        select,
+        button{
+            font-size:15px;
+        }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <a href="bienvenida.html" class="cerrar"> X </a>
+
+        <h2> Registrar Usuario </h2>
+
+<form action="php/registrar_usuario.php" method="POST" id="formRegistro">
+
+    <input type="text" id="nombre"  name="nombre" placeholder="Nombre completo" required>
+    <small id="contadorNombre">0/40 caracteres</small>
+            <input type="email" id="correo"  name="correo" placeholder="Correo electrónico" required>
+            <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono" maxlength="9" pattern="[0-9]{9}" required>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <small id="seguridadPassword"></small>
+            <input type="password" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
+
+            <select id="metodoPago" name="metodo_pago" required>
+                <option value="">Seleccione un método de pago</option>
+                <option value="Yape">Yape</option>
+                <option value="Plin">Plin</option>
+                <option value="Visa">Visa</option>
+                <option value="Mastercard">Mastercard</option>
+            </select>
+
+            <input type="text" id="cuentaPago" name="cuenta_pago" placeholder="Número de cuenta / Yape / Plin / Tarjeta"  maxlength="20">
+
+        <button type="submit">Registrarse</button>
+        <p id="mensajeRegistro"></p>
+
+</form>
+
+        <div class="login">
+
+            <p>¿Ya tienes una cuenta en Flash Bite?</p>
+
+            <br>
+
+        <a href="login.html">
+            <button type="button" class="btn-login">
+                 Iniciar sesión
+            </button>
+        </a>
+
+        </div>
+
+    </div>
+
+    <script src="js/registro.js"></script>
+
+</body>
+
+</html>
